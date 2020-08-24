@@ -1,25 +1,42 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx 	  = 1;        /* border pixel of windows */
-static const unsigned int gappx    	  = 10;        /* gaps between windows */
-static const unsigned int snap     	  = 32;       /* snap pixel */
-static const int showbar           	  = 1;        /* 0 means no bar */
-static const int topbar            	  = 1;        /* 0 means bottom bar */
-static const char *fonts[]         	  = { "SauceCodePro Nerd Font Mono:size=10" };
-static const char col_gray1[]      	  = "#222222";
-static const char col_gray2[]      	  = "#444444";
-static const char col_gray3[]      	  = "#bbbbbb";
-static const char col_gray4[]      	  = "#ffffff";
-static const char col_cyan[]       	  = "#333333";
+static const unsigned int borderpx = 1;        /* border pixel of windows */
+static const unsigned int gappx    = 10;        /* gaps between windows */
+static const unsigned int snap     = 32;       /* snap pixel */
+static const int showbar           = 1;        /* 0 means no bar */
+static const int topbar            = 1;        /* 0 means bottom bar */
+static const char *fonts[]         = { "SauceCodePro Nerd Font Mono:size=10" };
+static const char col_gray1[]      = "#222222";
+static const char col_gray2[]      = "#444444";
+static const char col_gray3[]      = "#bbbbbb";
+static const char col_gray4[]      = "#ffffff";
+static const char col_black[]      = "#333333";
+static const char col_white[]      = "#ffffff";
+static const char col_red1[]       = "#ff0000";
+static const char col_red2[]       = "#aa0000";
+static const char col_green1[]     = "#00ff00";
+static const char col_green2[]     = "#00aa00";
+static const char col_blue1[]      = "#0000ff";
+static const char col_blue2[]      = "#0000aa";
+static const char col_yellow1[]    = "#ffff00";
+static const char col_yellow2[]    = "#aaaa00";
+static const char col_cyan1[]      = "#8be9fd";
+static const char col_cyan2[]      = "#7bd9ed";
+
 static const unsigned int baralpha 	  = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const Bool viewontag           = True;     /* Switch view on tag switch */
 static const char *colors[][3]        = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeHid]  = { col_cyan,  col_gray1, col_cyan  },
+	/*              fg             bg           border   */
+	[SchemeNorm]  = { col_gray3,   col_gray1,   col_gray2 },
+	[SchemeSel]   = { col_gray4,   col_black,   col_black },
+	[SchemeHid]   = { col_black,   col_gray1,   col_black },
+	[SchemeFree]  = { col_green1,  col_green2,  col_black },
+	[SchemeUnacc] = { col_red1,    col_red2,    col_black },
+	[SchemeAct]   = { col_yellow1, col_yellow2, col_black },
+	[SchemeInact] = { col_blue1,   col_blue2,   col_black },
+	[SchemeCache] = { col_cyan1,   col_cyan2,   col_black },
 };
 static const unsigned int alphas[][3] = {
 	/*               fg      bg        border     */
