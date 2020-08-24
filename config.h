@@ -2,10 +2,10 @@
 
 /* appearance */
 static const unsigned int borderpx = 1;        /* border pixel of windows */
-static const unsigned int gappx    = 10;        /* gaps between windows */
+static const unsigned int gappx    = 5;        /* gaps between windows */
 static const unsigned int snap     = 32;       /* snap pixel */
 static const int showbar           = 1;        /* 0 means no bar */
-static const int topbar            = 1;        /* 0 means bottom bar */
+static const int topbar            = 0;        /* 0 means bottom bar */
 static const char *fonts[]         = { "SauceCodePro Nerd Font Mono:size=10" };
 static const char col_gray1[]      = "#222222";
 static const char col_gray2[]      = "#444444";
@@ -54,6 +54,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Peek",     NULL,       NULL,       0,            1,           -1 },
+	{ "trayer",   NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -89,6 +90,7 @@ static const char *flameshot[] = { "flameshot", "gui", NULL };
 static const char *upvol[]     = { "/home/matteo/scripts/vol-up.sh", NULL };
 static const char *downvol[]   = { "/home/matteo/scripts/vol-down.sh", NULL };
 static const char *mutevol[]   = { "/home/matteo/scripts/vol-toggle.sh", NULL };
+static const char *trayer[]    = { "/home/matteo/scripts/t-toggle.sh", NULL };
 static const char *rofirun[]   = { "rofi", "-show", "run", NULL };
 static const char *rofiapp[]   = { "rofi", "-show", "drun", NULL };
 
@@ -105,6 +107,7 @@ static Key keys[] = {
 	{ MODKEY,						XK_F12,	   spawn,          {.v = upvol } },
 	{ MODKEY,						XK_F11,	   spawn,          {.v = downvol } },
 	{ MODKEY,						XK_F9,	   spawn,          {.v = mutevol } },
+	{ MODKEY,						XK_t,	   spawn,          {.v = trayer } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
