@@ -761,27 +761,22 @@ dirtomon(int dir)
 void
 drawbar(Monitor *m)
 {
-	int x, w, sw = 0, n = 0, scm;
+	int x, w, sw = 0, n = 0, scm, tx = 0, sum = 0;
 	unsigned int i, occ = 0, urg = 0;
-    char *ts = stext;
-    char *tp = stext;
-    char *tt = stext;
-    char ctmp;
-    int tx = 0;
-    int sum= 0;
+    char *ts = stext, *tp = stext, *tt = stext, ctmp;
 	Client *c;
 
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
 		drw_setscheme(drw, scheme[SchemeNorm]);
 		while (*tt != '\0') {
-			if ((unsigned int)*tt <= LENGTH(colors))
+			if (*tt == 'x')
 				sum++;
 			tt++;
 		}
-		sw = TEXTW(stext) - lrpad + 2 - sum * 7; /* 2px right padding */
+		sw = TEXTW(stext) - lrpad + 2 - sum * 15; /* 2px right padding */
 		while (1) {
-			if ((unsigned int)*ts > LENGTH(colors)) {
+			if (*ts != 'x' && *(ts-1) != 'x' && (unsigned int)*ts > LENGTH(colors)) {
 				ts++;
 				continue;
 			}
@@ -789,8 +784,9 @@ drawbar(Monitor *m)
 			*ts = '\0';
 			drw_text(drw, m->ww - sw + tx, 0, sw - tx, bh, 0, tp, 0);
 			tx += TEXTW(tp) - lrpad;
-			if (ctmp == '\0') { break; }
-			drw_setscheme(drw, scheme[(unsigned int)(ctmp-1)]);
+			if (ctmp == '\0') break;
+			if (ctmp != 'x')
+				drw_setscheme(drw, scheme[(unsigned int)(ctmp-1-48)]);
 			*ts = ctmp;
 			tp = ++ts;
 		}
