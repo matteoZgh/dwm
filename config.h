@@ -7,11 +7,10 @@ static const unsigned int snap     = 32;       /* snap pixel */
 static const int showbar           = 1;        /* 0 means no bar */
 static const int topbar            = 0;        /* 0 means bottom bar */
 static const char *fonts[]         = { "SauceCodePro Nerd Font Mono:size=10" };
-static const char col_gray1[]      = "#222222";
-static const char col_gray2[]      = "#444444";
-static const char col_gray3[]      = "#bbbbbb";
-static const char col_gray4[]      = "#ffffff";
-static const char col_black[]      = "#333333";
+static const char col_gray1[]      = "#212121";
+static const char col_gray2[]      = "#bbbbbb";
+static const char col_gray3[]      = "#424242";
+static const char col_black[]      = "#000000";
 static const char col_white[]      = "#ffffff";
 static const char col_red1[]       = "#ff0000";
 static const char col_red2[]       = "#770000";
@@ -22,26 +21,32 @@ static const char col_blue2[]      = "#000077";
 static const char col_yellow1[]    = "#ffff00";
 static const char col_yellow2[]    = "#777700";
 static const char col_cyan1[]      = "#8be9fd";
-static const char col_cyan2[]      = "#4ba9bd";
+static const char col_cyan2[]      = "#036175";
 
 static const unsigned int baralpha 	  = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const Bool viewontag           = True;     /* Switch view on tag switch */
 static const char *colors[][3]        = {
 	/*              fg             bg           border   */
-	[SchemeNorm]  = { col_gray3,   col_gray1,   col_gray2 },
-	[SchemeSel]   = { col_gray4,   col_black,   col_black },
-	[SchemeHid]   = { col_black,   col_gray1,   col_black },
-	[SchemeFree]  = { col_green1,  col_green2,  col_black },
-	[SchemeUnacc] = { col_red1,    col_red2,    col_black },
-	[SchemeAct]   = { col_yellow1, col_yellow2, col_black },
-	[SchemeInact] = { col_blue1,   col_blue2,   col_black },
-	[SchemeCache] = { col_cyan1,   col_cyan2,   col_black },
+	[SchemeNorm]  = { col_gray2,   col_gray1,   col_gray3 },
+	[SchemeSel]   = { col_white,   col_gray3,   col_gray3 },
+	[SchemeHid]   = { col_gray3,   col_gray1,   col_gray3 },
+	[SchemeFree]  = { col_green1,  col_green2,  col_gray3 },
+	[SchemeUnacc] = { col_red1,    col_red2,    col_gray3 },
+	[SchemeAct]   = { col_yellow1, col_yellow2, col_gray3 },
+	[SchemeInact] = { col_blue1,   col_blue2,   col_gray3 },
+	[SchemeCache] = { col_cyan1,   col_cyan2,   col_gray3 },
 };
 static const unsigned int alphas[][3] = {
 	/*               fg      bg        border     */
-	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
-	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+	[SchemeNorm]  = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]   = { OPAQUE, baralpha, borderalpha },
+	[SchemeHid]   = { OPAQUE, baralpha, borderalpha },
+	[SchemeFree]  = { OPAQUE, baralpha, borderalpha },
+	[SchemeUnacc] = { OPAQUE, baralpha, borderalpha },
+	[SchemeAct]   = { OPAQUE, baralpha, borderalpha },
+	[SchemeInact] = { OPAQUE, baralpha, borderalpha },
+	[SchemeCache] = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
