@@ -112,7 +112,7 @@ static Key keys[] = {
 	{ MODKEY,						XK_F12,	   spawn,          {.v = upvol } },
 	{ MODKEY,						XK_F11,	   spawn,          {.v = downvol } },
 	{ MODKEY,						XK_F9,	   spawn,          {.v = mutevol } },
-	{ MODKEY,						XK_t,	   spawn,          {.v = trayer } },
+	{ MODKEY,						XK_o,	   spawn,          {.v = trayer } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
