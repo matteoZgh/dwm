@@ -16,16 +16,6 @@ static const char col_gray2[]      = "#bbbbbb";
 static const char col_gray3[]      = "#424242";
 static const char col_black[]      = "#000000";
 static const char col_white[]      = "#ffffff";
-static const char col_red1[]       = "#ff0000";
-static const char col_red2[]       = "#770000";
-static const char col_green1[]     = "#00ff00";
-static const char col_green2[]     = "#007700";
-static const char col_blue1[]      = "#0000ff";
-static const char col_blue2[]      = "#000077";
-static const char col_yellow1[]    = "#ffff00";
-static const char col_yellow2[]    = "#777700";
-static const char col_cyan1[]      = "#8be9fd";
-static const char col_cyan2[]      = "#036175";
 
 static const unsigned int baralpha 	  = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
@@ -35,22 +25,12 @@ static const char *colors[][3]        = {
 	[SchemeNorm]  = { col_gray2,   col_gray1,   col_gray3 },
 	[SchemeSel]   = { col_white,   col_gray3,   col_gray3 },
 	[SchemeHid]   = { col_gray3,   col_gray1,   col_gray3 },
-	[SchemeFree]  = { col_green1,  col_green2,  col_gray3 },
-	[SchemeUnacc] = { col_red1,    col_red2,    col_gray3 },
-	[SchemeAct]   = { col_yellow1, col_yellow2, col_gray3 },
-	[SchemeInact] = { col_blue1,   col_blue2,   col_gray3 },
-	[SchemeCache] = { col_cyan1,   col_cyan2,   col_gray3 },
 };
 static const unsigned int alphas[][3] = {
 	/*               fg      bg        border     */
 	[SchemeNorm]  = { OPAQUE, baralpha, borderalpha },
 	[SchemeSel]   = { OPAQUE, baralpha, borderalpha },
 	[SchemeHid]   = { OPAQUE, baralpha, borderalpha },
-	[SchemeFree]  = { OPAQUE, baralpha, borderalpha },
-	[SchemeUnacc] = { OPAQUE, baralpha, borderalpha },
-	[SchemeAct]   = { OPAQUE, baralpha, borderalpha },
-	[SchemeInact] = { OPAQUE, baralpha, borderalpha },
-	[SchemeCache] = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
@@ -61,9 +41,9 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Peek",     NULL,       NULL,       0,            1,           -1 },
-	{ "trayer",   NULL,       NULL,       0,            1,           -1 },
+	/* class         instance    title         tags mask     isfloating   monitor */
+	{ "Peek",        NULL,       NULL,         0,            1,           -1 },
+	{ "flameshot",   NULL,       NULL,         0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -91,7 +71,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *termcmd[]   = { "st", NULL };
-static const char *chromium[]  = { "chromium", "--proxy-server=socks5://127.0.0.1:1089", NULL };
+static const char *chromium[]  = { "chromium", "--proxy-server=socks://127.0.0.1:1080", NULL };
 static const char *ranger[]    = { "st", "-e", "ranger", NULL };
 static const char *nvim[]      = { "st", "-e", "nvim", NULL };
 static const char *music[]     = { "electron-netease-cloud-music", NULL };

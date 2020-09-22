@@ -78,7 +78,7 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
-enum { SchemeNorm, SchemeSel, SchemeHid, SchemeFree, SchemeUnacc, SchemeAct, SchemeInact, SchemeCache }; /* color schemes */
+enum { SchemeNorm, SchemeSel, SchemeHid}; /* color schemes */
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetSystemTray, NetSystemTrayOP, NetSystemTrayOrientation, NetSystemTrayOrientationHorz,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
@@ -850,9 +850,8 @@ dirtomon(int dir)
 void
 drawbar(Monitor *m)
 {
-	int x, w, sw = 0, n = 0, scm, tx = 0, sum = 0, stw = 0;
+	int x, w, sw = 0, n = 0, scm, stw = 0;
 	unsigned int i, occ = 0, urg = 0;
-    char *ts = stext, *tp = stext, *tt = stext, ctmp;
 	Client *c;
 
 	if(showsystray && m == systraytomon(m))
@@ -861,27 +860,8 @@ drawbar(Monitor *m)
 	/* draw status first so it can be overdrawn by tags later */
 	if (m == selmon) { /* status is only drawn on selected monitor */
 		drw_setscheme(drw, scheme[SchemeNorm]);
-		while (*tt != '\0') {
-			if (*tt == 'x')
-				sum++;
-			tt++;
-		}
-		sw = TEXTW(stext) - lrpad / 2 + 2 - sum * 15; /* 2px right padding */
-		while (1) {
-			if (*ts != 'x' && *(ts-1) != 'x' && (unsigned int)*ts > LENGTH(colors)) {
-				ts++;
-				continue;
-			}
-			ctmp = *ts;
-			*ts = '\0';
-			drw_text(drw, m->ww - sw + tx - stw, 0, sw - tx, bh, lrpad / 2 - 2, tp, 0);
-			tx += TEXTW(tp) - lrpad;
-			if (ctmp == '\0') break;
-			if (ctmp != 'x')
-				drw_setscheme(drw, scheme[(unsigned int)(ctmp-1-48)]);
-			*ts = ctmp;
-			tp = ++ts;
-		}
+		sw = TEXTW(stext) - lrpad / 2 + 2; /* 2px right padding */
+		drw_text(drw, m->ww - sw - stw, 0, sw, bh, lrpad / 2 - 2, stext, 0);
 	}
 
 	resizebarwin(m);
