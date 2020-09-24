@@ -44,6 +44,8 @@ static const Rule rules[] = {
 	/* class         instance    title         tags mask     isfloating   monitor */
 	{ "Peek",        NULL,       NULL,         0,            1,           -1 },
 	{ "flameshot",   NULL,       NULL,         0,            1,           -1 },
+	{ "scrcpy",      NULL,       NULL,         0,            1,           -1 },
+	{ "idea",        NULL,       "win0",       0,            1,           -1 },
 };
 
 /* layout(s) */
